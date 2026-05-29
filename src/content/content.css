@@ -1,0 +1,50 @@
+/* ============================================
+   Pinyin Extension — Content Styles
+   ============================================ */
+
+/* ruby 拼音标注容器 */
+ruby.pinyin-ruby {
+  ruby-align: center;
+  display: inline ruby;
+}
+
+/* 拼音文字（上方标注） */
+rt.pinyin-rt {
+  font-size: 0.55em;
+  font-weight: 400;
+  color: #e65100;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  transition: color 0.15s, transform 0.1s;
+}
+
+rt.pinyin-rt:hover {
+  color: #ff6d00;
+  transform: scale(1.15);
+}
+
+rt.pinyin-rt:active {
+  color: #bf360c;
+  transform: scale(0.95);
+}
+
+rt.pinyin-rt.pinyin-playing {
+  color: #d84315;
+  animation: pinyin-pulse 0.6s ease-in-out infinite;
+}
+
+@keyframes pinyin-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 汉字基础样式（保持原样，不额外影响） */
+.pinyin-ruby .pinyin-han {
+  /* inherited */
+}
+
+/* 确保 ruby 不破坏行内布局 */
+ruby.pinyin-ruby > rt.pinyin-rt {
+  display: ruby-text;
+}
